@@ -1,6 +1,3 @@
-% Learn Latex: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
-% using empty line for new paragraph instead of \par
-
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -25,7 +22,6 @@
 
 \title{\textbf{AP Calculus BC:\\Notes, Formulas,  Equations,\\and Examples}}
 \author{Bryan Deng}
-\date{Start date: March 2, 2021\\Completed: May 6, 2021}
 
 \begin{document}
 \maketitle
@@ -42,7 +38,8 @@
 
 \addcontentsline{toc}{section}{Introduction}
 \section*{Introduction}
-\indent The percentages beside the section titles are how much of the AP Calculus BC exam score will be of that topic. (Based off of College Board website.)
+
+For a more AP focused guide, please refer to \href{https://github.com/Blackgaurd/AP-CalcBC-Notes}{this}. The current document has more material mixed in from the IB Math HL AA course.
 
 \noindent \textbf{Resources:}
 \begin{itemize}
@@ -53,7 +50,7 @@
     \item \href{https://www.chelmsford.k12.ma.us/site/handlers/filedownload.ashx?moduleinstanceid=2496&dataid=7289&FileName=AP%20Calculus%20BC%20Syllabus.pdf}{BC Exam Syllabus (Not the most organized but good enough)}
 \end{itemize}
 
-\section{Limits and Continuity (4\% - 7\%)}
+\section{Limits and Continuity}
 \fline
 
 The limit is when a given value approaches, or gets \textit{really close} (infinitely) to another value. The standard notation for a limit:
@@ -61,16 +58,36 @@ The limit is when a given value approaches, or gets \textit{really close} (infin
 represents when $x$ can approach $c$ from either the left ($-$) or the right ($+$). By adding a sign superscript to the $c$, it means the $x$ can only approach from that direction:
 \[ \lim_{x \to c^+} f(x) \]
 \begin{center}
-    \textit{Right hand limit}, $x$ approaches $c$ from values greater than $c$.
+    \textit{Right-hand limit}, $x$ approaches $c$ from values greater than $c$.
 \end{center}
 \[ \lim_{x \to c^-} f(x) \]
 \begin{center}
-    \textit{Left hand limit}, $x$ approaches $c$ from values greater than $c$.
+    \textit{Left-hand limit}, $x$ approaches $c$ from values greater than $c$.
 \end{center}
+
+If the right-hand limit and the left-hand limit approach the same value, then the combined limit would also approach that value:
+
+\[ \left( \lim_{x \to c^-} = \lim_{x \to c^+} = x \right) \Rightarrow \left( \lim_{x \to c} = x \right) \]
+
+Otherwise, if the two-sided limits are not equal to the same value, the limit of the entire function would \textit{not exist}.
+
+\subsection{Restrictions on Limits (IB)}
+
+A limit must approach a real number.
+
+\[ \lim_{x \to c} f(x) = L \;, L \in \mathbb{R} \]
+
+For example, $\lim_{x \to 0} \sqrt{x}$ does not exist, because the right and left-hand limits are not the same.
+
+\begin{gather*}
+    \lim_{x \to 0^-} \sqrt{x} \in \mathbb{P} \because \sqrt{-n} \;, n \in \mathbb{R}^+ \\
+    \therefore \lim_{x \to 0^-} = \text{undefined} \\
+    \therefore \lim_{x \to 0} = \text{undefined}
+\end{gather*}
 
 \subsection{Limits to Infinity}
 
-If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, its limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading coefficient and the degree of the polynomial.
+If a degree (the biggest exponent) of a polynomial is greater than or equal to $1$, its limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading coefficient and the degree of the polynomial.
 
 \noindent Example:
 \begin{align*}
@@ -79,7 +96,7 @@ If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, 
     \lim_{x \to -\infty} & f(x) = -\infty
 \end{align*}
 
-The degree of $f(x)$ is $3$, and the leading coefficient it positive. The graph goes down to up from left to right.
+The degree of $f(x)$ is $3$, and the leading coefficient is positive. The graph goes down to up from left to right.
 
 With Fractions, just find whether the highest degree is in the numerator or the denominator. Numerator means $\infty$, denominator means $0$.
 
@@ -220,12 +237,27 @@ The limits of combined functions can be found by finding the limit of each of th
     \end{center}
 \end{figure}
 
+\subsection{More Limit Properties (IB)}
+
+\begin{itemize}
+    \item \textbf{Limit of a constant:}
+
+    A limit of any constant $k$ to any value $a$ would be equal to the constant.
+    \[ \lim_{x \to a} k = k \]
+    \smallskip
+
+    \item \textbf{Exponents of a limit:}
+
+    The limit of a function to an exponent is equal to the entire limit raised to that exponent.
+    \[ \lim_{x \to a} \left( f(x) ^ n \right) = \left( \lim_{x \to a} f(x) \right)^n \]
+\end{itemize}
+
 \subsection{Solving Limits}
 The first thing to always try when solving limits is \textbf{direct substitution}. If this does not work (undefined limit, 0 as denominator, etc.), then algebraic manipulation (factoring) is the next step.
 
 \begin{align*}
      & \lim_{x \to 2} \frac{x^4 + 3x^3 - 10x^2}{x^2 - 2x}           \\[6pt]
-     & = \lim_{x \to 2} \frac{x^2\left[ (x+5)(x-2) \right]}{x(x-2)} \\
+     & = \lim_{x \to 2} \frac{x^2 (x+5)(x-2)}{x(x-2)} \\
      & = \lim_{x \to 2} x(x+5)                                      \\
      & = 14
 \end{align*}
@@ -263,8 +295,67 @@ The first thing to always try when solving limits is \textbf{direct substitution
 
 The different results achievable from direct substitution can mean different things. $\frac{k}{0}$ means that the limit does not exist, probably an asymptote. $\frac{0}{0}$ means that the limit is indeterminate, use manipulation and try again.
 
+\subsection{More Methods to Solve Limits (IB)}
+
+\begin{itemize}
+    \item \textbf{Conjugate the radical:}
+
+    If there is radical in a function, it can also be moved from the top to the denominator if direct substitution results in an indeterminate form. For example:
+
+    \begin{align*}
+        \lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x} &= \lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x} \cdot \frac{\sqrt{x + 1} + 1}{\sqrt{x + 1} + 1} \\[6pt]
+        &= \lim_{x \to 0} \frac{x + 1 - 1}{x \left( \sqrt{x + 1} + 1 \right)} \\[6pt]
+        &= \lim_{x \to 0} \frac{1}{\sqrt{x + 1} + 1} \\[6pt]
+        &= \frac{1}{2}
+    \end{align*}
+
+    \item \textbf{Changing the variables:}
+
+    The original variable of the function can be substituted or mapped to another variable, and the limit can be solved with the new variable.
+
+    Given:
+
+    \[ \lim_{x \to 0} \frac{(x + 1)^{\frac{1}{3}} - 1}{x} \]
+
+    Direct substitution results in indeterminate form. Therefore, we can substitute:
+
+    \begin{gather*}
+        a = (x + 1)^{\frac{1}{3}} \\
+        a^3 = x + 1 \\
+        x = a^3 - 1 \\
+        \lim_{x \to 0} = \lim_{a^3 \to 1} = \lim_{a \to 1}
+    \end{gather*}
+
+    Put $a$ back into the original function:
+
+    \begin{align*}
+        \lim_{x \to 0} \frac{(x + 1)^{\frac{1}{3}} - 1}{x} &= \lim_{a \to 1} \frac{a - 1}{a^3 - 1} \\[6pt]
+        &= \lim_{a \to 1} \frac{a - 1}{(a - 1)(a^2 + a + 1)} \\[6pt]
+        &= \lim_{a \to 1} \frac{1}{a^2 + a + 1} \\[6pt]
+        &= \frac{1}{3}
+    \end{align*}
+
+    \item \textbf{One-sided limits:}
+
+    Sometimes the two different sided limits may not result in the same value. This method can be useful in dealing with absolute values.
+
+    \[ \lim_{x \to 10} \frac{|x - 10|}{x - 10} \]
+
+    Left-hand limit ($x < 10$):
+
+    \[ \lim_{x \to 10^-} \frac{-(x - 10)}{x - 10} = -1 \]
+
+    Right-hand limit ($x > 10$):
+
+    \[ \lim_{x \to 10^+} \frac{x - 10}{x - 10} = 1 \]
+
+    The left-hand and right-hand limits do not equate to the same value, therefore the overall limit does not exist.
+
+    \[ \lim_{x \to 10^-} f(x) \neq \lim_{x \to 10^+} f(x) \]
+\end{itemize}
+
 \subsection{Continuity}
-A function is continuous at a point if its right and left hand side limits at that point are the same. In other words, it ``can be drawn without lifting the pencil.''
+A function is continuous at a point if its right and left-hand side limits at that point are the same. In other words, it ``can be drawn without lifting the pencil.''
 \[ \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x).\]
 
 For a function to be \textit{continuous for all real numbers}, it has to give a real number result for all real number $x$. Basically it's continuous over its \textbf{domain} (horizontal).
@@ -290,6 +381,90 @@ then $F(x)$ has removable discontinuity at $k$.
 \textbf{Jump discontinuity} is when a part of a graph jumps from one $y$ to another on the same $x$ value. (See $f(x)$ in \hyperref[fig:limproperties]{Figure 2}.)
 
 \textbf{Infinite discontinuity} usually occurs when there is a vertical asymptote, and the discontinuity occurs over the asymptote. Both sides of the asymptote approach that value, but never actually touch, so the function is not continuous.
+
+\subsection{Properties of a Function Using Limits (IB)} % TODO: not done
+
+Limits can be used to find different properties of a function. Given the function:
+
+\[ f(x) = \frac{x^2 + 8x + 16}{x^2 + x - 12}, \]
+
+\noindent find the holes, x-intercept, y-intercept, vertical asymptote, horizontal asymptote, domain, range, and increasing/decreasing intervals.
+
+\begin{itemize}
+    \item \textbf{Step 1: factor and simplify}
+
+    \begin{align*}
+        f(x) &= \frac{x^2 + 8x + 16}{x^2 + x - 12} \\[6pt]
+        &= \frac{(x + 4)^2}{(x + 4)(x - 3)} \\[6pt]
+        &= \frac{x + 4}{x - 3} \;, x \neq -4, x \neq 3
+    \end{align*}
+
+    \item \textbf{Step 2: list the features of} $f(x)$
+    \begin{itemize}
+        \item \textbf{Holes and discontinuity}
+
+        $(x + 4)$ was factored out from both the numerator and denominator, therefore there is a hole and the function is not continuous at $x = -4$.
+
+        \item \textbf{$x$-intercept}
+
+        \begin{align*}
+            f(x) &= 0 \\
+            \frac{x + 4}{x - 3} &= 0 \\[6pt]
+            x &= -4
+        \end{align*}
+
+        However, there is a hole at $x = -4$, so there are no $x$-intercepts.
+
+        \item \textbf{$y$-intercept}
+
+        \begin{align*}
+            f(0) &= \frac{0 + 4}{0 - 3} \\[6pt]
+            &= -frac{4}{3}
+        \end{align*}
+
+        The $y$-intercept is at $y = -\frac{4}{3}$.
+
+        \item \textbf{Vertical asymptote}
+
+        The denominator is $0$ when $x = 3$. Therefore, the vertical asymptote is at $x = 3$.
+
+        \item \textbf{Horizontal asymptote}
+
+        \[ \lim_{x \to \infty} \frac{x + 4}{x - 3} = 1 \]
+
+        Therefore, the horizontal asymptote is at $y = 1$. The function approaches this line towards positive and negative infinity but never actually reaches it.
+
+        \item \textbf{Domain}
+
+        \[ \{ x \in \mathbb{R} \mid x \neq -4, 3 \} \]
+
+        At $x = -4$ there is a hole, and at $x = 3$ there is a vertical asymptote.
+
+        \item \textbf{Range}
+
+        \[ \{ y \in \mathbb{R} \mid y \neq 0, 1 \} \]
+
+        At $y = 0$ there is a hole, and at $y = 1$ there is a horizontal asymptote.
+
+        \item \textbf{Increasing intervals}
+
+        N/A
+
+        \item \textbf{Decreasing intervals}
+
+        \[ x \in (-\infty, -4) \cup (-4, 3) \cup (3, \infty) \]
+
+        The graph decreases over all of $x$ except for when there are holes or a vertical asymptote.
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \begin{center}
+        \frame{\includegraphics[scale=0.8]{fig26.png}}
+        \caption[Figure 26]{A graph of $f(x)$}
+        \label{fig:functionproperties}
+    \end{center}
+\end{figure}
 
 \subsection{Squeeze Theorem}
 When it is hard to find the limit for a function, the squeeze theorem (AKA sandwich theorem) can be used. Basically find two other functions, one on top, and one below, and use the limits of the two functions to ``squeeze'' the limit of the given function.
@@ -340,7 +515,7 @@ Given a \textbf{continuous} segment of a function $f(x)$, let $c \in [a, b]$ and
     \end{center}
 \end{figure}
 
-\section[Differentiation: Definition and Fundamental Properties (4\% - 7\%)]{Differentiation: Definition and Fundamental \\ (4\% - 7\%)}
+\section[Differentiation: Definition and Fundamental Properties]{Differentiation: Definition and Fundamental}
 \fline
 
 A derivative is the \textbf{instantaneous} rate of change of a function at a point. It's the average rate of change over an infinitely small interval. It has two main notations (names are not important here).
@@ -455,7 +630,7 @@ Do note that all of the functions other than $\sin$ nas $\cos$ can be derived us
     \end{tabular}
 \end{center}
 
-\section{Differentiation: Composite, Implicit, and Inverse Functions (4\% - 7\%)}
+\section{Differentiation: Composite, Implicit, and Inverse Functions}
 \fline
 \subsection{Implicit Differentiation}
 Implicit differentiation is taking the derivative of both sides of an equation with respect to two variables, usually $x$ and $y$, by treating one variable as a function of the other. (Usually $y$ is a function of $x$.)
@@ -554,7 +729,7 @@ To find higher order derivatives, simply take the derivative of the previous ord
     f''(x) & = -\frac{\cos \left( \frac{x}{2} \right)}{2}
 \end{align*}
 
-\section[Contextual Applications of Differentiation (6\% - 9\%)]{Contextual Applications of Differentiation \\(6\% - 9\%)}
+\section[Contextual Applications of Differentiation]{Contextual Applications of Differentiation}
 \fline
 %* put an intro here ig? whats supposed to be in the intro idk
 % \subsection{Rates of Change (Identifying Relevant Information)}
@@ -1070,7 +1245,7 @@ Implicit relations can be useful in solving for unknown values or line equations
           Therefore, at $(1, -3)$, the slope of the tangent line is $0$, and thus it is horizontal.
 \end{enumerate}
 
-\section{Integration and Accumulation of Change (17\% - 20\%)}
+\section{Integration and Accumulation of Change}
 \fline
 
 The accumulation of change is the net change of a quantity. This is not the same thing as simply the quantity. The accumulation of change takes into consideration time, and it is the quantity over a specified time period. There may be some quantity before or after this time period, but we would not count that.
@@ -1373,7 +1548,7 @@ Solving improper integrals is very similar to solving definite integrals, just t
           \end{align*}
 \end{itemize}
 
-\section{Differential Equations (6\% - 9\%)}
+\section{Differential Equations}
 \fline
 
 Differential equations involve functions and their derivatives. Unlike algebraic equations who evaluate to numbers or values, differential equations evaluate to a function or class (several) functions.
@@ -1692,7 +1867,7 @@ The change in population is proportional to the product of the population at the
           Therefore, the model is growing the quickest at $N=90000$.
 \end{enumerate}
 
-\section{Applications of Integration (6\% - 9\%)}
+\section{Applications of Integration}
 \fline
 
 \subsection{Average of a Function Over an Interval} % are examples needed for this?
@@ -2046,7 +2221,7 @@ According to Pythagorean's Theorem, we can rewrite this equation:
             & = \int \sqrt{1 + \left( f'(x) \right)^2} \, dx
 \end{align*}
 
-\section{Parametric Equations, Polar Coordinates, and Vector-Valued Functions (11\% - 12\%)}
+\section{Parametric Equations, Polar Coordinates, and Vector-Valued Functions}
 \fline
 
 \noindent \textbf{Brief Refresher:}
@@ -2314,7 +2489,7 @@ The steps in finding the area bound by polar curves is very similar to that of n
           \[ \frac{1}{2} \int_{-\frac{\pi}{2}}^{-\frac{\pi}{4}} \left( 2+\cos(2\theta) \right)^2 \, d\theta + \frac{1}{2} \int_{-\frac{\pi}{4}}^0 4 \, d\theta. \]
 \end{enumerate}
 
-\section{Infinite Sequences and Series (17\% - 18\%)}
+\section{Infinite Sequences and Series}
 \fline
 
 \noindent An infinite series is the sum of an infinite number of terms in a sequence.
