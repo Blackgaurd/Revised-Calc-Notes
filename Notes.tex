@@ -534,7 +534,10 @@ A derivative is the \textbf{instantaneous} rate of change of a function at a poi
 \noindent Differentiability \textit{implies} continuity, but continuity does not mean differentiability.
 
 \subsection{Derivative as a Limit}
-Not the most useful, but might be on exam. College Board says: ``You'll apply limits to define the derivative.''
+Not the most useful, but might be on exam. College Board says: ``You'll apply limits to define the derivative.
+
+\noindent This is essentially the slope formula ($m = \frac{\Delta y}{\Delta x}$) as $\Delta x$ becomes infinitely small.
+
 \[ \frac{d}{dx} f(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]
 \[ \frac{d}{dx} f(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a} \]
 
@@ -545,6 +548,65 @@ Not the most useful, but might be on exam. College Board says: ``You'll apply li
     \text{OR} \\
     \lim_{x \to 2} \frac{\sin{x} - \sin{(2)}}{x-2}
 \end{gather*}
+
+\subsubsection{Gradients (IB)}
+
+The \textbf{average rate of change} between two instances on a curve is represented by the slope of the secant.
+
+\begin{figure}[H]
+    \begin{center}
+        \frame{\includegraphics[scale=0.75]{fig27.png}}
+        \caption{Tangent and secant of a curve}
+        \label{fig:tangent-secant}
+    \end{center}
+\end{figure}
+
+As $Q$ moves closer to $P$, the gradient of the secant $PQ$ gets closer to the gradient of the tangent at $P$.
+
+\noindent Example questions (solve using limits because IB):
+
+\begin{enumerate}
+    \item Find the slope of the tangent to the parabola $y=x^2-1$ at the point $(2, 3)$.
+
+    Let $f(x) = x^2 - 1$, therefore $a = 2$ and $f(a) = 3$.
+
+    \begin{align*}
+        \text{Slope of tangent} &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \\[6pt]
+        &= \lim_{h \to 0} \frac{\left( (2 + h)^2 - 1 \right) - f(2)}{h} \\[6pt]
+        &= \lim_{h \to 0} \frac{4 + 4h + h^2 - 1 - 3}{h} \\[6pt]
+        &= \lim_{h \to 0} \frac{h^2 + 4h}{h} \\[6pt]
+        &= \lim_{h \to 0} 4 + h \\
+        &= 4
+    \end{align*}
+
+    Now that we know the slope $m = 4$ and one point $(2, 3)$, we can plug these into $y = mx + b$ to find the equation of the line. This is left as an exercise to the reader.
+
+    \item Find the points on the graph of $y = \frac{1}{x}$ where the gradient is $-\frac{1}{4}$.
+
+    Let $f(a) = \frac{1}{a}$.
+
+    \begin{align*}
+        -\frac{1}{4} &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \\[6pt]
+        &= \lim_{h \to 0} \frac{\frac{1}{a + h} - \frac{1}{a}}{h} \\[6pt]
+        &= \lim_{h \to 0} \left( \frac{1}{h} \right) \left( \frac{1}{a+h} - \frac{1}{a} \right) \cdot \frac{a(a+h)}{a(a+h)} \\[6pt]
+        &= \lim_{h \to 0} \left( \frac{1}{h} \right) \left( \frac{a - (a + h)}{a(a+h)} \right) \\[6pt]
+        &= \lim_{h \to 0} \left( \frac{1}{h} \right) \left( \frac{-h}{a(a+h)} \right) \\[6pt]
+        &= \lim_{h \to 0} \frac{-1}{a(a+h)} \\[6pt]
+        -\frac{1}{4} &= -\frac{1}{a^2} \\
+        a &= \pm 2
+    \end{align*}
+
+    Plugging $a = \pm 2$ back into $f(a)$ to get the points where the gradient is $-\frac{1}{4}$.
+
+    \begin{gather*}
+        f(2) = \frac{1}{2} \\
+        f(-2) = -\frac{1}{2}
+    \end{gather*}
+
+    Therefore, the points at which the gradient of the slope is equal to $-\frac{1}{4}$ are:
+
+    \[ \left( 2, \frac{1}{2} \right), \left( -2, -\frac{1}{2} \right). \]
+\end{enumerate}
 
 \subsection{Differentiation Rules}
 \subsubsection{Derivative of a constant}
