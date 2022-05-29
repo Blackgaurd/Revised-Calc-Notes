@@ -549,7 +549,7 @@ Not the most useful, but might be on exam. College Board says: ``You'll apply li
     \lim_{x \to 2} \frac{\sin{x} - \sin{(2)}}{x-2}
 \end{gather*}
 
-\subsubsection{Gradients (IB)}
+\subsubsection{Secants and Tangents (IB)}
 
 The \textbf{average rate of change} between two instances on a curve is represented by the slope of the secant.
 
@@ -608,6 +608,38 @@ As $Q$ moves closer to $P$, the gradient of the secant $PQ$ gets closer to the g
     \[ \left( 2, \frac{1}{2} \right), \left( -2, -\frac{1}{2} \right). \]
 \end{enumerate}
 
+\subsubsection{Normal Lines (IB)}
+
+The \textbf{normal line} at a point on a curve is the line perpendicular to the curve's tangent at that point. Therefore, the following equation is true (where $m$ is slope):
+
+\[ m_\text{normal} \times m_\text{tangent} = -1. \]
+
+\noindent \textbf{Example:} find the equation of the normal of the graph $y = \frac{1}{x + 1}$ at $x = 3$.
+
+\noindent Gradient of tangent (using limits because IB):
+
+\begin{align*}
+    \frac{dy}{dx}  &= \lim_{h \to 0} \frac{\frac{1}{x + h + 1} - \frac{1}{x + 1}}{h} \\[6pt]
+    &= \lim_{h \to 0} \frac{1}{h} \cdot \frac{x + 1 - (x + h + 1)}{(x + h + 1)(x + 1)} \\[6pt]
+    &= \lim_{h \to 0} \frac{1}{h} \cdot \frac{-h}{(x + h + 1)(x + 1)} \\[6pt]
+    f'(x) &= \lim_{h \to 0} \frac{-1}{(x + 1)^2} \\[6pt]
+    f'(3) &= \frac{-1}{(3 + 1)^2} \\[6pt]
+    &= \frac{-1}{16}
+\end{align*}
+
+\noindent Gradient of the normal:
+
+\[ m_\text{normal} = \left( -\frac{1}{16} \right)^{-1} = -16. \]
+
+\noindent Point where tangent meets curve:
+
+\begin{gather*}
+    f(3) = \frac{1}{4} \\[6pt]
+    \text{point at} \left( 3, \frac{1}{4} \right).
+\end{gather*}
+
+Given the slope ($m = -16$) and a point $\left( 3, \frac{1}{4} \right)$ the equation of the normal can be derived. This is left as an exercise to the reader.
+
 \subsection{Differentiation Rules}
 \subsubsection{Derivative of a constant}
 \noindent The derivative of a constant is always $0$.
@@ -617,7 +649,7 @@ As $Q$ moves closer to $P$, the gradient of the secant $PQ$ gets closer to the g
 \end{gather*}
 
 \subsubsection{Constants in a function}
-\noindent The constant can be moved outside of the derivative.
+\noindent The constant can be moved outside the derivative.
 \[ \left( k f(x) \right)' = k f'(x) \]
 
 \subsubsection{Sum rule}
