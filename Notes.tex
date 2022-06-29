@@ -486,7 +486,7 @@ Note that $x$ and $L$ can both be $\pm \infty$.
      & \text{Squeeze Theorem:}                  & \lim_{x \to \infty}              & \frac{\sin{x}}{x} = 0.
 \end{align*}
 
-The best way to solve the above problem is to first recognize the easier part of the problem, $\sin{x}$. Then manipulate the entire inequality so the middle function becomes the original problem. Solve limits of the two other functions to solve original limit.
+The best way to solve the above problem is to first recognize the easier part of the problem, $\sin{x}$. Then manipulate the entire inequality, so the middle function becomes the original problem. Solve limits of the two other functions to solve original limit.
 
 \noindent \textbf{Another example:}
 \begin{gather*}
@@ -1065,20 +1065,20 @@ If $f(x)$ is a continuous function over the closed interval $[a, b]$, then there
 The first derivative test, second derivative test, and candidates test are used together to find relative (local) and absolute (global) extremum in a function.
 
 \subsubsection{Relative (Local) Extrema}
-A \textbf{relative maximum} is a point where the value of the function is largest. The direction changes from increasing to decreasing (highest point).
+A \textbf{relative maximum} is a point where the value of the function is largest. The direction changes from increasing to decreasing (the highest point).
 
-Similarly, a \textbf{relative minimum} is a point where the value of the function is smallest. The direction changes from decreasing to increasing (lowest point).
+Similarly, a \textbf{relative minimum} is a point where the value of the function is smallest. The direction changes from decreasing to increasing (the lowest point).
 
 \noindent \textbf{Using the first derivative test:}
 
-Critical points are points where the derivative of the function is $0$ or undefined. At critical points, there is either an extrema or a point of inflection. For now, we are only concerned with extrema.
+Critical points are points where the derivative of the function is $0$ or undefined. At critical points, there is either an extremum or a point of inflection. For now, we are only concerned with extrema.
 
 \noindent \textbf{Example:} finding the relative extremum of $f(x) = \frac{x^2}{x-1}$.
 \begin{align*}
     f(x)  & = \frac{x^2}{x-1}        \\[6pt]
     f'(x) & = \frac{x^2-2x}{(x-1)^2}
 \end{align*}
-Find the points where $f'(x)$ is $0$ or undefined:
+Find the points where $f'(x)$ is $0$ or undefined (critical or stationary points):
 \begin{center}
     \begin{tabular}{|c|c|}
         \hline
@@ -1110,11 +1110,13 @@ Next, test the intervals between the critical points to see whether the function
 
 At $x=0$, $f'(x)$ switches from positive to negative, so $f(x)$ has a relative maximum. Similarly, at $x=2$, $f'(x)$ switches from negative to positive, so $f(x)$ has a relative minimum.
 
+However, the sign of the first derivative does not change at $x=1$. Although it is a critical point, it is not a local maximum nor minimum. These points are called \textbf{stationary points of inflection} (IB).
+
 \noindent \textbf{Using the second derivative test:}
 
 The second derivative test can make it a lot easier to determine if a critical point is a maximum or minimum.
 
-\noindent Given
+\noindent Given a critical point $\left( x, f(x) \right)$ where
 \[ f'(x) = 0, \]
 then:
 \[ f''(x) \begin{cases}
@@ -1163,7 +1165,7 @@ Next, test the intervals between the endpoints and critical points to see whethe
 \end{center}
 Over the closed interval, $(-2, 0)$ and $(0, 0)$ are the relative minimums and $(-\frac{4}{3}, 1.185)$ and $(1, 3)$ are the relative maximums.
 
-\noindent \textbf{Both $(-2, 0)$ and $(0, 0)$ have the same $y$ value, so they are both absolute minimums. $(1, 3)$ has the greatest $y$ value so it's the absolute maximum.}
+\noindent \textbf{Both $(-2, 0)$ and $(0, 0)$ have the same $y$ value, so they are both absolute minimums. $(1, 3)$ has the greatest $y$ value, so it's the absolute maximum.}
 \begin{figure}[H]
     \begin{center}
         \frame{\includegraphics[scale=0.4]{fig7.JPG}}
@@ -1173,11 +1175,9 @@ Over the closed interval, $(-2, 0)$ and $(0, 0)$ are the relative minimums and $
 \end{figure}
 
 \subsubsection{Concavity and Points of Inflection}
-Concavity is the sign of curvature of a function. Parts of a graph can either be \textit{concave up} or \textit{concave down}. When the concavity is concave up, the first derivative is increasing, thus the second derivative is positive. When the concavity is concave down, the first derivative is decreasing, thus the second derivative is negative.
+Concavity is the sign of curvature of a function. Parts of a graph can either be \textit{concave up} or \textit{concave down}. A curve is \textbf{concave down} on the interval where $f''(x)$ exists and $f''(x) < 0$. Similarly, a curve is \textbf{concave up} on the interval where $f''(x)$ exists and $f''(x) > 0$. If $f'(x) = 0$, then the point will be either a local maximum or minimum, respectively.
 
-Inflection points are where the concavity flips. At inflection points both the first and second derivatives are $0$.
-
-\noindent \textbf{Note: when checking if a candidate is an inflection point, the second derivative must change signs!}
+Inflection points are points where the curve of a graph changes concavity. In other words, the sign of the second derivative changes at a point of inflection. If $f''(x) = 0$ and $f'(x) =  0$, the point is called a \textbf{horizontal point of inflection} (IB).
 
 \begin{figure}[H]
     \begin{center}
@@ -1693,7 +1693,6 @@ We can confirm that this slope field belongs to the above equation by testing a 
     \item At $(2, 2)$, $\frac{dy}{dx} = \frac{0}{2}$. This is seen in the slope field by a horizontal line, matching the slope of $0$.
     \item At $(-6, 5)$, $\frac{dy}{dx} = \frac{-8}{5}$. This is seen in the slope field by a line with a negative slope. (It isn't necessary to confirm the slope 100\%, it is sufficient to use an approximation.)
 \end{itemize}
-% TODO: add more for slope fields maybe
 
 \subsection{Approximation Using Euler's Method}
 Euler's method can be used to approximate solutions to otherwise unsolvable differential equations. It's general idea involves solving for $\frac{dy}{dx}$ at one point, then extending the slope over a $\Delta x$, to find the next point to approximate at. At this next point we repeat the steps until we reach the point we hope to achieve.
